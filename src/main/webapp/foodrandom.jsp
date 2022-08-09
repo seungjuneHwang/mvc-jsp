@@ -1,5 +1,8 @@
+<%@ page import="com.google.mvc.dto.TbFoodDto" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-
+<%
+    TbFoodDto dto = (TbFoodDto)request.getAttribute("food");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,9 +28,12 @@
     </nav>
     <div id="what-the-hell-is-this">
         <div class="page-title">
-            <h2>내가 만든 서비스</h2>
+            <h2>음식추천</h2>
             <p class="lead">
+                <%=dto.getName()%> 드세요~
             </p>
+            <img src="<%=dto.getImg()%>" class="rounded" alt="<%=dto.getName()%>" width="640" height="480">
+        </div>
         </div>
     </div>
 </div>
