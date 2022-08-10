@@ -30,12 +30,20 @@ public class ControllerServlet extends HttpServlet {
         } else if (uri.equals("/search.gg")) {
 //            out.println("<br>검색 페이지");
             path = "search.jsp";
+        } else if (uri.equals("/searchnext.gg")) {
+//            out.println("<br>검색 페이지");
+            String s = request.getParameter("search");
+            System.out.println(s);
+            path = "/SearchServlet";
         } else if (uri.equals("/foodrandom.gg")) {
 //            out.println("<br>음식을 랜덤으로 골라주는 페이지");
             path = "/FoodRandomServlet";
         } else if (uri.equals("/login.gg")) {
 //            out.println("<br>로그인 페이지");
             path = "login.jsp";
+        } else if (uri.equals("/foodlist.gg")) {
+//            out.println("<br>로그인 페이지");
+            path = "FoodListServlet";
         } else if (uri.equals("/naver.gg")) {
             response.sendRedirect("https://www.naver.com");
         } else {

@@ -8,15 +8,16 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
+import java.util.List;
 
-@WebServlet(name = "FoodRandomServlet", value = "/FoodRandomServlet")
-public class FoodRandomServlet extends HttpServlet {
+@WebServlet(name = "FoodListServlet", value = "/FoodListServlet")
+public class FoodListServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         TbFoodDao dao = new TbFoodDaoImpl();
-        TbFoodDto dto = dao.findRandOne();
-        RequestDispatcher dis = request.getRequestDispatcher("foodrandom.jsp");
-        request.setAttribute("food", dto);
+        List<TbFoodDto> list = dao.findAll();
+        request.setAttribute("foodlist", list);
+        RequestDispatcher dis = request.getRequestDispatcher("foodlist.jsp");
         dis.forward(request, response);
     }
 
