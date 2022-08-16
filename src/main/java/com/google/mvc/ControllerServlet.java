@@ -44,6 +44,9 @@ public class ControllerServlet extends HttpServlet {
         } else if (uri.equals("/foodlist.gg")) {
 //            out.println("<br>로그인 페이지");
             path = "FoodListServlet";
+        } else if (uri.equals("/savefood.gg")) {
+//            out.println("<br>로그인 페이지");
+            path = "SaveFoodServlet";
         } else if (uri.equals("/naver.gg")) {
             response.sendRedirect("https://www.naver.com");
         } else {
