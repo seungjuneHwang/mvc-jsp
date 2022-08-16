@@ -41,6 +41,9 @@ public class ControllerServlet extends HttpServlet {
         } else if (uri.equals("/login.gg")) {
 //            out.println("<br>로그인 페이지");
             path = "login.jsp";
+        } else if (uri.equals("/loginok.gg")) {
+//            out.println("<br>로그인 페이지");
+            path = "LoginOkServlet";
         } else if (uri.equals("/foodlist.gg")) {
 //            out.println("<br>로그인 페이지");
             path = "FoodListServlet";
