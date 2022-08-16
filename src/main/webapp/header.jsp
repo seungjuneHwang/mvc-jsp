@@ -5,7 +5,10 @@
   Time: 오후 4:04
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%
+  String userName = (String)session.getAttribute("username");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,9 +19,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/login.css">
   <script src="js/index.js"></script>
-  <script src="js/login.js"></script>
 </head>
 <body>
 <div class="container-fluid">
@@ -30,7 +31,13 @@
         <li><a id="len3" class="hoverable" href="/search.gg">검색</a></li>
         <li><a id="len4" class="hoverable" href="/foodrandom.gg">음식추천</a></li>
         <li><a id="len5" class="hoverable" href="/foodlist.gg">음식리스트</a></li>
-        <li><a id="len6" class="hoverable" href="/login.gg">로그인</a></li>
+        <% if (userName == null) { %>
+          <li><a id="len6" class="hoverable" href="/login.gg">로그인</a></li>
+        <% } else {%>
+
+          <li><a id="len6" class="hoverable" href="/logout.gg">로그아웃</a></li>
+        <li><a id="len7" class="hoverable" href="#"><%=userName%>님</a></li>
+        <% } %>
       </ul>
     </div>
   </nav>
